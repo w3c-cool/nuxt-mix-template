@@ -12,12 +12,6 @@ export default defineNuxtConfig({
       buildTime: new Date().toISOString()
     }
   },
-
-  // Route Rules Configuration
-  routeRules: {
-    // 首页 - SWR 缓存 60 秒
-    '/': { swr: 60 }
-  },
   sourcemap: false,
   compatibilityDate: '2025-07-15',
 
