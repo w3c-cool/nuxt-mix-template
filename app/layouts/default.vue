@@ -14,7 +14,7 @@
                   <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <span class="brand-text gradient-text">Nuxt Hybrid Rendering</span>
+              <span class="brand-text gradient-text">Nuxt SSR</span>
             </NuxtLink>
           </div>
           
@@ -22,18 +22,6 @@
           <div class="navbar-nav">
             <NuxtLink to="/" class="nav-link" :class="{ active: $route.path === '/' }">
               Home
-            </NuxtLink>
-            <NuxtLink to="/ssg" class="nav-link" :class="{ active: $route.path === '/ssg' }">
-              SSG Example
-            </NuxtLink>
-            <NuxtLink to="/isr" class="nav-link" :class="{ active: $route.path === '/isr' }">
-              ISR Example
-            </NuxtLink>
-            <NuxtLink to="/ssr" class="nav-link" :class="{ active: $route.path === '/ssr' }">
-              SSR Example
-            </NuxtLink>
-            <NuxtLink to="/streaming" class="nav-link" :class="{ active: $route.path === '/streaming' }">
-              Streaming
             </NuxtLink>
           </div>
           
@@ -59,38 +47,6 @@
           >
             Home
           </NuxtLink>
-          <NuxtLink 
-            to="/ssg" 
-            class="mobile-nav-link" 
-            @click="closeMobileMenu"
-            :class="{ active: $route.path === '/ssg' }"
-          >
-            SSG Example
-          </NuxtLink>
-          <NuxtLink 
-            to="/isr" 
-            class="mobile-nav-link" 
-            @click="closeMobileMenu"
-            :class="{ active: $route.path === '/isr' }"
-          >
-            ISR Example
-          </NuxtLink>
-          <NuxtLink 
-            to="/ssr" 
-            class="mobile-nav-link" 
-            @click="closeMobileMenu"
-            :class="{ active: $route.path === '/ssr' }"
-          >
-            SSR Example
-          </NuxtLink>
-          <NuxtLink 
-            to="/streaming" 
-            class="mobile-nav-link" 
-            @click="closeMobileMenu"
-            :class="{ active: $route.path === '/streaming' }"
-          >
-            Streaming
-          </NuxtLink>
         </div>
       </div>
     </header>
@@ -105,15 +61,13 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Nuxt Hybrid Rendering Example</h3>
-            <p>A complete example project showcasing SSG, ISR, and SSR rendering modes</p>
+            <h3>Nuxt SSR</h3>
+            <p>A minimal server-side rendering example project</p>
           </div>
           <div class="footer-section">
-            <h4>Rendering Modes</h4>
+            <h4>Rendering Mode</h4>
             <ul class="footer-links">
-              <li><NuxtLink to="/ssg">Static Site Generation (SSG)</NuxtLink></li>
-              <li><NuxtLink to="/isr">Incremental Static Regeneration (ISR)</NuxtLink></li>
-              <li><NuxtLink to="/ssr">Server-Side Rendering (SSR)</NuxtLink></li>
+              <li><NuxtLink to="/">Server-Side Rendering (SSR)</NuxtLink></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -126,7 +80,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Nuxt Hybrid Rendering Example Project. Built with Nuxt {{ nuxtVersion }}</p>
+          <p>&copy; 2025 Nuxt SSR Example Project. Built with Nuxt {{ nuxtVersion }}</p>
         </div>
       </div>
     </footer>
@@ -160,9 +114,9 @@ watch(() => route.path, () => {
 
 // Page metadata
 useHead({
-  titleTemplate: '%s - Nuxt Hybrid Rendering Example',
+  titleTemplate: '%s - Nuxt SSR',
   meta: [
-    { name: 'description', content: 'Nuxt.js hybrid rendering example project showcasing SSG, ISR, and SSR rendering modes' },
+    { name: 'description', content: 'Nuxt.js server-side rendering minimal example' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ]
 })

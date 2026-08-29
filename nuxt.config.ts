@@ -1,36 +1,32 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-compatibilityDate: '2025-07-15',
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  
+  sourcemap: false,
+
   // CSS Configuration
   css: ['~/assets/css/main.css'],
-  
-  // Hybrid Rendering Route Rules Configuration
+
+  // Route Rules Configuration
   routeRules: {
-    // SSG example page - Static Generation
-    '/ssg': { prerender: true },
-    // ISR example page - Incremental Static Regeneration
-    '/isr': { swr: 5 },
-    // SSR example page - Server-Side Rendering
-    '/ssr': { ssr: true },
-    // Streaming example page - Server-Side Rendering with Streaming
-    '/streaming': { ssr: true }
+    // 首页 - Server-Side Rendering
+    '/': { ssr: true }
   },
-  
+
   // TypeScript Configuration
   typescript: {
     strict: true
     // typeCheck: true // Temporarily disabled to avoid additional dependencies
   },
-  
+
   // Runtime Configuration
+  // 注意：构建期执行，buildTime 在构建时固定（V8 边缘运行时无 process）
   runtimeConfig: {
     public: {
-      buildTime: process.env.BUILD_TIME || new Date().toISOString()
+      buildTime: new Date().toISOString()
     }
   },
-  
+
   // V8 Edge 部署（阿里云 ESA / Cloudflare 等边缘平台）
   // 产物为 .output/server/index.mjs，导出 export default { fetch }
   nitro: {
