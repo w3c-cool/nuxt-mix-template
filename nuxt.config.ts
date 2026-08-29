@@ -15,8 +15,14 @@ export default defineNuxtConfig({
 
   // Route Rules Configuration
   routeRules: {
-    // 首页 - SWR 缓存 30 秒：超时后重新渲染，缓存期内复用
-    '/': { swr: 30 }
+    // 首页 - 纯 SSR
+    // 缓存交给 ESA/CDN 层：Cache-Control 告知边缘节点缓存 60s，避免 Nitro SWR 的 waitUntil 问题
+    '/': {
+      ssr: true,
+      headers: {
+        'Cache-Control': 'public, max-age=60, s-maxage=60, stale-while-revalidate=300'
+      }
+    }
   },
   sourcemap: false,
   compatibilityDate: '2025-07-15',
