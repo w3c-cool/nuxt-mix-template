@@ -55,8 +55,9 @@ export default defineEventHandler(async (event) => {
     },
     metadata: {
       version: '1.0.0',
-      environment: process.env.NODE_ENV || 'development',
-      nodeVersion: process.version
+      // V8 边缘运行时无 Node process 对象，改用 import.meta.env / 固定值
+      environment: (import.meta as any).env?.NODE_ENV || 'production',
+      nodeVersion: 'edge'
     }
   }
 })

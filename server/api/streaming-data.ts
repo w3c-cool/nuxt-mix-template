@@ -117,7 +117,8 @@ export default defineEventHandler(async (event) => {
       renderMode: 'Streaming',
       requestId: Math.random().toString(36).substring(2, 15),
       version: '1.0.0',
-      environment: process.env.NODE_ENV || 'development'
+      // V8 边缘运行时无 Node process 对象
+      environment: (import.meta as any).env?.NODE_ENV || 'production'
     }
   }
   

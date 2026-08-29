@@ -31,5 +31,9 @@ compatibilityDate: '2025-07-15',
     }
   },
   
-  nitro: {}
+  // V8 Edge 部署（阿里云 ESA / Cloudflare 等边缘平台）
+  // 产物为 .output/server/index.mjs，导出 export default { fetch }
+  nitro: {
+    preset: 'cloudflare-module'
+  }
 })
