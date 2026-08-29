@@ -18,12 +18,7 @@ export default defineNuxtConfig({
   // V8 Edge 部署（阿里云 ESA / Cloudflare 等边缘平台）
   // 产物为 .output/server/index.mjs，导出 export default { fetch }
   nitro: {
-    preset: 'cloudflare-module',
-    // 构建时预压缩公共静态资源（js/css），减小传输体积
-    compressPublicAssets: {
-      gzip: true,
-      brotli: true
-    }
+    preset: 'cloudflare-module'
   },
 
   // TypeScript Configuration
