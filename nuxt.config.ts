@@ -15,8 +15,8 @@ export default defineNuxtConfig({
 
   // Route Rules Configuration
   routeRules: {
-    // 首页 - ISR 增量静态再生成，缓存 30 秒
-    '/': { isr: 30 }
+    // 首页 - SWR 缓存 60 秒
+    '/': { swr: 60 }
   },
   sourcemap: false,
   compatibilityDate: '2025-07-15',
@@ -24,7 +24,12 @@ export default defineNuxtConfig({
   // V8 Edge 部署（阿里云 ESA / Cloudflare 等边缘平台）
   // 产物为 .output/server/index.mjs，导出 export default { fetch }
   nitro: {
-    preset: 'cloudflare-module'
+    preset: 'cloudflare-module',
+    // 构建时预压缩公共静态资源（js/css），减小传输体积
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true
+    }
   },
 
   // TypeScript Configuration
