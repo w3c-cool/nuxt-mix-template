@@ -12,6 +12,10 @@ export default defineNuxtConfig({
       buildTime: new Date().toISOString()
     }
   },
+  routeRules: {
+    '/': { swr: 30 },
+    '/api/ssr-data': { swr: 30 }
+  },
   sourcemap: false,
   compatibilityDate: '2025-07-15',
 
